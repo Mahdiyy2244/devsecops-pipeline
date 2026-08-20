@@ -32,7 +32,7 @@ jobs:
 
     - name: Build Docker Image
       run: |
-        docker build -t my-app:${{ github.sha }} .
+        docker build -t my-app:${{ github.sha }} -f Dockerfile.myapp .
 
     - name: Run Trivy
       uses: aquasecurity/trivy-action@master
