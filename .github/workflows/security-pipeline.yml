@@ -24,9 +24,11 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Run Hadolint
+    - name: Install and run Hadolint
       run: |
-            docker run --rm -v $(pwd):/workspace hadolint/hadolint:latest /workspace/Dockerfile.myapp
+        sudo wget -O /usr/local/bin/hadolint https://github.com/hadolint/hadolint/releases/latest/download/hadolint-Linux-x86_64
+        sudo chmod +x /usr/local/bin/hadolint
+        hadolint Dockerfile.myapp
 
     - name: Build Docker Image
       run: |
