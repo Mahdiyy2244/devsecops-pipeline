@@ -26,7 +26,7 @@ jobs:
 
     - name: Run Hadolint
       run: |
-        docker run --rm -v $(pwd):/workspace hadolint/hadolint:latest /workspace/Dockerfile
+            docker run --rm -v $(pwd):/workspace hadolint/hadolint:latest /workspace/Dockerfile.myapp
 
     - name: Build Docker Image
       run: |
